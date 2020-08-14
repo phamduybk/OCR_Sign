@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %} Home Page {% endblock %}
+
+{% block content %}
+
+<div class="container-fluid row" style="height: 100vh; color: #eeeeee;">
+  <div class="col-12 row justify-content-center align-items-center" style="height: 10vh; background-color: #222831 ;">
+    <h1>Detector and Regconizate</h1>
+  </div>
+
+
+  <!-- Information -->
+  <div class="col-3 rounded-right" style="background-color: #393e46; height: 90vh; font-size: 1.2rem; padding-top: 2rem;">
+    <h3 style="text-align: center;">Result Text</h3>
+    <div id="resultText">
+    </div>
+  </div>
+
+  <div class="col-6 justify-content-center">
+    <!-- Image -->
+    <div class="row justify-content-center align-items-center ">
+      <div class="panel" style="height: 20vh; color: white;">
+        <input id="file-upload" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg" name="image" />
+        <label for="file-upload" id="file-drag" class="upload-box"
+          style="height: 100%; width: 100%; margin-top: 6px  ;">
+          <div id="upload-caption">Drop image here or click to select</div>
+          <img id="image-preview" class="hidden" />
+        </label>
+      </div>
+    </div>
+
+    <!-- Controller -->
+    <div class="row justify-content-center align-items-center" style="height: 20vh;">
+      <div>
+        <input type="button" value="Submit" class="button" onclick="submitImage();" style="margin-right: 5rem;" />
+        <input type="button" value="Clear" class="button" onclick="clearImage();" style="margin-left: 5rem;" />
+      </div>
+    </div>
+
+    <!-- Result display -->
+    <div class="row justify-content-center align-items-center" style="width: 100%;">
+      <div id="image-box">
+        <img class="col" id="image-display" />
+        <!-- <div id="pred-result" class="hidden"></div> -->
+        <svg id="loader" class="hidden" viewBox="0 0 32 32" width="32" height="32">
+          <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-3 rounded-left" style="background-color: #393e46; font-size: 1.2rem; padding-top: 2rem;">
+    <h3 style="text-align: center;">Confident</h3>
+    <div id="confident">
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
